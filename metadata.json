@@ -1,0 +1,6 @@
+{
+  "name": "VeritasFlow",
+  "description": "An AI-powered information diet coach that tracks content consumption, analyzes bias and sentiment, detects filter bubbles, and recommends alternative perspectives for a healthier digital mind.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "VeritasFlow - Information Diet Coach",
+  "version": "1.0",
+  "description": "Information Diet Coach Browser extension to track conscious media consumption and burst filter bubbles.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.jpg"
+  },
+  "icons": {
+    "128": "icon.jpg"
+  }
+}

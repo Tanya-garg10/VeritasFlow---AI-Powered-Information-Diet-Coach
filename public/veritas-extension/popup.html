@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root {
+      --bg: #07070a;
+      --card-bg: #0c0d14;
+      --accent-purple: #6366f1;
+      --accent-emerald: #10b981;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      width: 320px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      padding: 16px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .logo-container {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-purple), #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 16px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .brand-subtitle {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.8px;
+    }
+
+    .badge-stream {
+      background-color: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--accent-emerald);
+      padding: 2px 6px;
+      border-radius: 99px;
+      font-size: 9px;
+      font-weight: bold;
+      margin-left: auto;
+    }
+
+    .section-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.8px;
+      font-weight: bold;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .tracking-status {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .status-label {
+      color: var(--text-muted);
+    }
+
+    .status-value {
+      font-weight: 600;
+    }
+
+    .truncate {
+      max-width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .live-dwell {
+      font-family: monospace;
+      color: var(--accent-purple);
+      font-weight: bold;
+    }
+
+    /* Buttons styling */
+    button {
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent-purple), #4f46e5);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+    }
+
+    button:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    /* Form Config Area */
+    .config-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--text-muted);
+    }
+
+    input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: white;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 11px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent-purple);
+    }
+
+    /* History Logs */
+    .logs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+
+    .log-item {
+      font-size: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      padding-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .log-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #e2e8f0;
+      flex-1: 1;
+    }
+
+    .log-time {
+      color: var(--accent-purple);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      font-size: 9px;
+      text-align: center;
+      color: var(--text-muted);
+      margin-top: 15px;
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+    }
+
+    .alert {
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      text-align: center;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .alert-success {
+      background-color: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">V</div>
+    <div>
+      <h1 class="brand-title">VeritasFlow</h1>
+      <p class="brand-subtitle">Smart Co-pilot extension</p>
+    </div>
+    <span class="badge-stream" id="conn-badge">Extension Node</span>
+  </header>
+
+  <!-- Success Notifications -->
+  <div class="alert alert-success" id="success-alert">
+    Telemetry recorded successfully!
+  </div>
+
+  <div class="section-title">Current Browsing Status</div>
+  <div class="card tracking-status">
+    <div class="status-row">
+      <span class="status-label">Active Site:</span>
+      <span class="status-value truncate" id="current-title">Reading empty page...</span>
+    </div>
+    <div class="status-row">
+      <span class="status-label">Pacing Session Dwell:</span>
+      <span class="status-value live-dwell" id="current-dwell">0s</span>
+    </div>
+    <div class="status-row">
+      <span class="status-label">Eligible for AI Diet:</span>
+      <span class="status-value" id="current-status">Checking URL...</span>
+    </div>
+  </div>
+
+  <button type="button" id="audit-btn">
+    ⚡ RUN CONSCIOUS COGNITIVE AUDIT
+  </button>
+
+  <div class="section-title">Server Sync Configuration</div>
+  <div class="card">
+    <div class="config-field">
+      <label for="backend-input">VeritasFlow Endpoint URL</label>
+      <input type="text" id="backend-input" placeholder="http://localhost:3000">
+    </div>
+    <div class="status-row" style="font-size: 10px; margin-top: 4px;">
+      <span style="color: var(--text-muted)">Default:</span>
+      <span style="font-family: monospace; color: #a5b4fc">http://localhost:3000</span>
+    </div>
+  </div>
+
+  <div class="section-title">Recent Reading Logs</div>
+  <div class="card">
+    <div class="logs-list" id="logs-list">
+      <div style="font-size: 10px; color: var(--text-muted); text-align: center; padding: 10px 0;">No logs cached. Browse websites to stream.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    VeritasFlow Shield V1.0 • GDPR Compliant Track Mode
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
