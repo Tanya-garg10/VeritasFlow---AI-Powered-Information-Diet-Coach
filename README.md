@@ -98,7 +98,7 @@ It then recommends balanced and credible alternatives to help users maintain a h
 * Mobile application support
 * AI-powered misinformation detection
 
-## ❤️ Made By Tanya 
+## ❤️ Made By Tanya & Shravani Dhuri
 
 Built with passion for promoting healthier digital habits.
 
